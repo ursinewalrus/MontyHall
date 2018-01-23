@@ -68,8 +68,11 @@ for i in range(0,num_games):
 	# now we have a list of all doors we are allowed to remove
 	games_output += "\nDoor(s) removed: "
 	for i in range(0,doors_revealed):
+		# get val of a door we are going to reveal
 		remove_val = random.sample(possible_doors_to_rm,1)
+		# removed so now it cant be guessed, since revealed
 		possible_doors_to_guess.remove(remove_val[0])
+		# removed from possible to be removed, so if more to remove same door not double revealed
 		possible_doors_to_rm.remove(remove_val[0])
 		games_output += "\n"+str(remove_val)
 		# going to have to use math.random here and not the api without some confusing stuff
